@@ -31,8 +31,9 @@ namespace CherryPicking
         {
             var random = new Random();
             (int Start, int Length) result = (textBox1.SelectionStart, textBox1.SelectionLength);
-        
+
             int next = random.Next(1, 8);
+
             switch (next)
             {
                 case 1:

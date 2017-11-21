@@ -85,7 +85,14 @@ namespace CherryPicking
 
         public (int Start, int Length) FindBySplit(int startingPosition)
         {
-            var result = TextToSearch.Substring(startingPosition).ToLower().Split(new string[] { Keyword }, StringSplitOptions.None);
+            var newSource = TextToSearch.Substring(startingPosition).ToLower();
+
+            var result = newSource.Split(new string[] { Keyword }, StringSplitOptions.None);
+
+            if (newSource.Length == result[0].Length)
+            {
+                return (0, 0);
+            }
 
             return (startingPosition + result[0].Length, Keyword.Length);
         }
